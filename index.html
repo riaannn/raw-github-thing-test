@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <base href="https://cdn.jsdelivr.net/gh/freebuisness/freebuisness.github.io@main/">
+        <base href="https://fastly.jsdelivr.net/gh/freebuisness/freebuisness.github.io@main/">
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
@@ -813,14 +813,14 @@ const sortOptions = document.getElementById('sortOptions');
 const filterOptions = document.getElementById('filterOptions');
 // https://www.jsdelivr.com/tools/purge
 const zonesurls = [
-    "https://cdn.jsdelivr.net/gh/freebuisness/assets@main/zones.json",
-    "https://cdn.jsdelivr.net/gh/freebuisness/assets@latest/zones.json",
-    "https://cdn.jsdelivr.net/gh/freebuisness/assets@master/zones.json",
-    "https://cdn.jsdelivr.net/gh/freebuisness/assets/zones.json"
+    "https://fastly.jsdelivr.net/gh/freebuisness/assets@main/zones.json",
+    "https://fastly.jsdelivr.net/gh/freebuisness/assets@latest/zones.json",
+    "https://fastly.jsdelivr.net/gh/freebuisness/assets@master/zones.json",
+    "https://fastly.jsdelivr.net/gh/freebuisness/assets/zones.json"
 ];
 let zonesURL = zonesurls[Math.floor(Math.random() * zonesurls.length)];
-const coverURL = "https://cdn.jsdelivr.net/gh/freebuisness/covers@main";
-const htmlURL = "https://cdn.jsdelivr.net/gh/freebuisness/html@main";
+const coverURL = "https://fastly.jsdelivr.net/gh/freebuisness/covers@main";
+const htmlURL = "https://fastly.jsdelivr.net/gh/freebuisness/html@main";
 let zones = [];
 let popularityData = {};
 const featuredContainer = document.getElementById('featuredZones');
@@ -843,7 +843,7 @@ async function listZones() {
             shajson = await sharesponse.json();
             sha = shajson[0]['sha'];
             if (sha) {
-                zonesURL = `https://cdn.jsdelivr.net/gh/freebuisness/assets@${sha}/zones.json`;
+                zonesURL = `https://fastly.jsdelivr.net/gh/freebuisness/assets@${sha}/zones.json`;
             }
           } catch (error) {
             try {
@@ -851,7 +851,7 @@ async function listZones() {
                 if (secondarysharesponse && secondarysharesponse.status === 200) {
                     sha = (await secondarysharesponse.text()).trim();
                     if (sha) {
-                        zonesURL = `https://cdn.jsdelivr.net/gh/freebuisness/assets@${sha}/zones.json`;
+                        zonesURL = `https://fastly.jsdelivr.net/gh/freebuisness/assets@${sha}/zones.json`;
                     }
                 }
             } catch(error) {}
